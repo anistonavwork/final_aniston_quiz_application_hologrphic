@@ -72,8 +72,8 @@ export default function QuizPage({ onFinishQuiz }) {
       style={{
         width: "100vw",
         height: "100vh",
-        background: "#000",
-        color: "#fff",
+        background: "#fff",
+        color: " #000",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -155,8 +155,9 @@ export default function QuizPage({ onFinishQuiz }) {
               borderRadius: "6px",
               border: selected === opt ? "2px solid #00d1ff" : "1px solid #555",
               cursor: "pointer",
-              background: selected === opt ? "#003b45" : "#111",
+              background: selected === opt ? "#3a8795ff" : "white",
               transition: "0.3s",
+              color:"black"
             }}
           >
             {opt}

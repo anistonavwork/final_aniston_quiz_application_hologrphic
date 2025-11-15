@@ -15,9 +15,9 @@ export default function FormPage({ onSubmitForm }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: "#000",
+        background: "#fff",
         fontFamily: "-apple-system, BlinkMacSystemFont",
-        color: "#fff",
+        color: " #000",
         overflow: "hidden",
         padding: "20px 220px",
         position: "relative"
@@ -41,7 +41,8 @@ export default function FormPage({ onSubmitForm }) {
             lineHeight: "1.4",
             opacity: 0.9,
             letterSpacing: "0.5px",
-            fontWeight: "600"
+            fontWeight: "600",
+            color:'black'
           }}
         >
           Please fill these details to play the quiz and get a <b>50% OFF coupon code</b>
@@ -95,7 +96,7 @@ export default function FormPage({ onSubmitForm }) {
             background: "#00d1ff",
             border: "none",
             borderRadius: "6px",
-            color: "#000",
+            color: "#fff",
             fontWeight: "600",
             fontSize: "1rem",
             marginTop: "12px",
@@ -130,8 +131,8 @@ const inputStyle = {
   marginBottom: "12px",
   borderRadius: "6px",
   border: "1px solid #555",
-  background: "#111",
-  color: "#fff",
+  background: "#fff ",
+  color: " #111",
   fontSize: "0.9rem",
   outline: "none",
 };

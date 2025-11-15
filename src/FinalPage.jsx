@@ -124,8 +124,8 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
       style={{
         width: "100vw",
         height: "100vh",
-        background: "#000",
-        color: "#fff",
+        background: " #fff",
+        color: "#000",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
