@@ -1,0 +1,827 @@
+[
+  {
+    "category": "IoT",
+    "question": "What does IoT stand for?",
+    "options": [
+      "Internet of Things",
+      "Input of Technology",
+      "Inside of Tools",
+      "Internal Operating Technique"
+    ],
+    "answer": "Internet of Things"
+  },
+  {
+    "category": "IoT",
+    "question": "Which of the following is an example of an IoT device?",
+    "options": [
+      "Smart Watch",
+      "Desktop Computer",
+      "DVD Player",
+      "USB Drive"
+    ],
+    "answer": "Smart Watch"
+  },
+  {
+    "category": "IoT",
+    "question": "IoT devices are connected through which network?",
+    "options": [
+      "Internet",
+      "Bluetooth Only",
+      "Telephone Line",
+      "TV Cable"
+    ],
+    "answer": "Internet"
+  },
+  {
+    "category": "IoT",
+    "question": "Which of these helps IoT devices communicate wirelessly?",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "IoT",
+    "question": "What type of sensor is used to measure temperature?",
+    "options": [
+      "Thermometer Sensor",
+      "Motion Sensor",
+      "Sound Sensor",
+      "Light Sensor"
+    ],
+    "answer": "Thermometer Sensor"
+  },
+  {
+    "category": "AV",
+    "question": "What does AV stand for?",
+    "options": [
+      "Audio Visual",
+      "Automatic Volume",
+      "Active Video",
+      "Analog Vision"
+    ],
+    "answer": "Audio Visual"
+  },
+  {
+    "category": "AV",
+    "question": "Which cable is used to connect a monitor to a computer?",
+    "options": [
+      "HDMI",
+      "USB",
+      "Ethernet",
+      "Audio Jack"
+    ],
+    "answer": "HDMI"
+  },
+  {
+    "category": "AV",
+    "question": "What device is used to increase the sound level?",
+    "options": [
+      "Amplifier",
+      "Speaker",
+      "Microphone",
+      "Projector"
+    ],
+    "answer": "Amplifier"
+  },
+  {
+    "category": "AV",
+    "question": "Which device is used to display video on a large screen?",
+    "options": [
+      "Projector",
+      "Microphone",
+      "Router",
+      "Keyboard"
+    ],
+    "answer": "Projector"
+  },
+  {
+    "category": "AV",
+    "question": "Which device is used to capture sound in AV systems?",
+    "options": [
+      "Microphone",
+      "Speaker",
+      "Camera",
+      "Amplifier"
+    ],
+    "answer": "Microphone"
+  },
+  {
+    "category": "IoT",
+    "question": "Smart home devices are part of which technology?",
+    "options": [
+      "Internet of Things",
+      "Cloud Computing",
+      "Virtual Reality",
+      "Blockchain"
+    ],
+    "answer": "Internet of Things"
+  },
+  {
+    "category": "AV",
+    "question": "Which connector is commonly used for audio systems?",
+    "options": [
+      "XLR",
+      "USB",
+      "HDMI",
+      "Ethernet"
+    ],
+    "answer": "XLR"
+  },
+  {
+    "category": "IoT",
+    "question": "Which company developed Alexa smart assistant?",
+    "options": [
+      "Amazon",
+      "Google",
+      "Apple",
+      "Microsoft"
+    ],
+    "answer": "Amazon"
+  },
+  {
+    "category": "AV",
+    "question": "What does a camera do in an AV system?",
+    "options": [
+      "Captures video",
+      "Plays sound",
+      "Displays content",
+      "Provides internet"
+    ],
+    "answer": "Captures video"
+  },
+  {
+    "category": "IoT",
+    "question": "What is the main purpose of IoT?",
+    "options": [
+      "To connect devices and share data",
+      "To play music",
+      "To increase internet speed",
+      "To store photos"
+    ],
+    "answer": "To connect devices and share data"
+  },
+  {
+    "category": "IoT",
+    "question": "What does the perception layer do in IoT?",
+    "options": [
+      "Sensing and actuation",
+      "Data storage",
+      "User interface",
+      "Security"
+    ],
+    "answer": "Sensing and actuation"
+  },
+  {
+    "category": "IoT",
+    "question": "Which company offers AWS IoT Core?",
+    "options": [
+      "Amazon",
+      "Google",
+      "Microsoft",
+      "IBM"
+    ],
+    "answer": "Amazon"
+  },
+  {
+    "category": "AV",
+    "question": "What does a DSP do in AV systems?",
+    "options": [
+      "Processes audio digitally",
+      "Shows video",
+      "Stores data",
+      "Cleans power"
+    ],
+    "answer": "Processes audio digitally"
+  },
+  {
+    "category": "IoT",
+    "question": "What is the function of a PTZ camera?",
+    "options": [
+      "Pan, Tilt, Zoom control",
+      "Play music",
+      "Control lights",
+      "Record audio"
+    ],
+    "answer": "Pan, Tilt, Zoom control"
+  },
+  {
+    "category": "IoT",
+    "question": "Which protocol is commonly used in IoT communication?",
+    "options": [
+      "MQTT",
+      "FTP",
+      "SMTP",
+      "HTTP"
+    ],
+    "answer": "MQTT"
+  },
+  {
+    "category": "IoT",
+    "question": "Which helps IoT devices communicate wirelessly?",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "IoT",
+    "question": "What does a DSP do in AV systems?",
+    "options": [
+      "Processes audio digitally",
+      "Shows video",
+      "Stores data",
+      "Cleans power"
+    ],
+    "answer": "Processes audio digitally"
+  },
+  {
+    "category": "AV",
+    "question": "What is a microcontroller used for in IoT?",
+    "options": [
+      "Controlling devices",
+      "Storing movies",
+      "Connecting HDMI",
+      "Printing reports"
+    ],
+    "answer": "Controlling devices"
+  },
+  {
+    "category": "IoT",
+    "question": "Which helps IoT devices communicate wirelessly?",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "AV",
+    "question": "What type of sensor measures temperature?",
+    "options": [
+      "Thermometer Sensor",
+      "Motion Sensor",
+      "Sound Sensor",
+      "Light Sensor"
+    ],
+    "answer": "Thermometer Sensor"
+  },
+  {
+    "category": "IoT",
+    "question": "What type of sensor measures temperature?",
+    "options": [
+      "Thermometer Sensor",
+      "Motion Sensor",
+      "Sound Sensor",
+      "Light Sensor"
+    ],
+    "answer": "Thermometer Sensor"
+  },
+  {
+    "category": "IoT",
+    "question": "What does the perception layer do in IoT?",
+    "options": [
+      "Sensing and actuation",
+      "Data storage",
+      "User interface",
+      "Security"
+    ],
+    "answer": "Sensing and actuation"
+  },
+  {
+    "category": "IoT",
+    "question": "What does IoT stand for?",
+    "options": [
+      "Internet of Things",
+      "Input of Technology",
+      "Inside of Tools",
+      "Internal Operating Technique"
+    ],
+    "answer": "Internet of Things"
+  },
+  {
+    "category": "IoT",
+    "question": "Which protocol transmits audio over IP?",
+    "options": [
+      "Dante",
+      "VGA",
+      "HDMI",
+      "USB"
+    ],
+    "answer": "Dante"
+  },
+  {
+    "category": "IoT",
+    "question": "What does IoT stand for?",
+    "options": [
+      "Internet of Things",
+      "Input of Technology",
+      "Inside of Tools",
+      "Internal Operating Technique"
+    ],
+    "answer": "Internet of Things"
+  },
+  {
+    "category": "IoT",
+    "question": "Which protocol transmits audio over IP?",
+    "options": [
+      "Dante",
+      "VGA",
+      "HDMI",
+      "USB"
+    ],
+    "answer": "Dante"
+  },
+  {
+    "category": "AV",
+    "question": "What captures sound?",
+    "options": [
+      "Microphone",
+      "Speaker",
+      "Camera",
+      "Amplifier"
+    ],
+    "answer": "Microphone"
+  },
+  {
+    "category": "AV",
+    "question": "Which company offers AWS IoT Core?",
+    "options": [
+      "Amazon",
+      "Google",
+      "Microsoft",
+      "IBM"
+    ],
+    "answer": "Amazon"
+  },
+  {
+    "category": "AV",
+    "question": "Which protocol is commonly used in IoT communication?",
+    "options": [
+      "MQTT",
+      "FTP",
+      "SMTP",
+      "HTTP"
+    ],
+    "answer": "MQTT"
+  },
+  {
+    "category": "IoT",
+    "question": "Which cable connects monitors to PCs?",
+    "options": [
+      "HDMI",
+      "USB",
+      "Ethernet",
+      "Audio Jack"
+    ],
+    "answer": "HDMI"
+  },
+  {
+    "category": "IoT",
+    "question": "Which of the following is an IoT device? (Set 21)",
+    "options": [
+      "Smart Watch",
+      "Desktop Computer",
+      "DVD Player",
+      "USB Drive"
+    ],
+    "answer": "Smart Watch"
+  },
+  {
+    "category": "AV",
+    "question": "What does the perception layer do in IoT? (Set 22)",
+    "options": [
+      "Sensing and actuation",
+      "Data storage",
+      "User interface",
+      "Security"
+    ],
+    "answer": "Sensing and actuation"
+  },
+  {
+    "category": "IoT",
+    "question": "What is the function of a PTZ camera? (Set 23)",
+    "options": [
+      "Pan, Tilt, Zoom control",
+      "Play music",
+      "Control lights",
+      "Record audio"
+    ],
+    "answer": "Pan, Tilt, Zoom control"
+  },
+  {
+    "category": "AV",
+    "question": "Which device displays video on a large screen? (Set 24)",
+    "options": [
+      "Projector",
+      "Router",
+      "Keyboard",
+      "Printer"
+    ],
+    "answer": "Projector"
+  },
+  {
+    "category": "IoT",
+    "question": "Which device displays video on a large screen? (Set 25)",
+    "options": [
+      "Projector",
+      "Router",
+      "Keyboard",
+      "Printer"
+    ],
+    "answer": "Projector"
+  },
+  {
+    "category": "AV",
+    "question": "Which network connects IoT devices? (Set 26)",
+    "options": [
+      "Internet",
+      "Bluetooth",
+      "Telephone",
+      "TV Cable"
+    ],
+    "answer": "Internet"
+  },
+  {
+    "category": "IoT",
+    "question": "Which network connects IoT devices? (Set 27)",
+    "options": [
+      "Internet",
+      "Bluetooth",
+      "Telephone",
+      "TV Cable"
+    ],
+    "answer": "Internet"
+  },
+  {
+    "category": "IoT",
+    "question": "Which connector is common in pro audio? (Set 28)",
+    "options": [
+      "XLR",
+      "USB",
+      "Ethernet",
+      "HDMI"
+    ],
+    "answer": "XLR"
+  },
+  {
+    "category": "AV",
+    "question": "What is the function of a PTZ camera? (Set 29)",
+    "options": [
+      "Pan, Tilt, Zoom control",
+      "Play music",
+      "Control lights",
+      "Record audio"
+    ],
+    "answer": "Pan, Tilt, Zoom control"
+  },
+  {
+    "category": "AV",
+    "question": "What does a DSP do in AV systems? (Set 30)",
+    "options": [
+      "Processes audio digitally",
+      "Shows video",
+      "Stores data",
+      "Cleans power"
+    ],
+    "answer": "Processes audio digitally"
+  },
+  {
+    "category": "IoT",
+    "question": "Which protocol transmits audio over IP? (Set 31)",
+    "options": [
+      "Dante",
+      "VGA",
+      "HDMI",
+      "USB"
+    ],
+    "answer": "Dante"
+  },
+  {
+    "category": "AV",
+    "question": "What does AV stand for? (Set 32)",
+    "options": [
+      "Audio Visual",
+      "Automatic Volume",
+      "Active Video",
+      "Analog Vision"
+    ],
+    "answer": "Audio Visual"
+  },
+  {
+    "category": "IoT",
+    "question": "What increases sound level? (Set 33)",
+    "options": [
+      "Amplifier",
+      "Speaker",
+      "Microphone",
+      "Projector"
+    ],
+    "answer": "Amplifier"
+  },
+  {
+    "category": "IoT",
+    "question": "What captures sound? (Set 34)",
+    "options": [
+      "Microphone",
+      "Speaker",
+      "Camera",
+      "Amplifier"
+    ],
+    "answer": "Microphone"
+  },
+  {
+    "category": "IoT",
+    "question": "What is the function of a PTZ camera? (Set 35)",
+    "options": [
+      "Pan, Tilt, Zoom control",
+      "Play music",
+      "Control lights",
+      "Record audio"
+    ],
+    "answer": "Pan, Tilt, Zoom control"
+  },
+  {
+    "category": "AV",
+    "question": "What does AV stand for? (Set 36)",
+    "options": [
+      "Audio Visual",
+      "Automatic Volume",
+      "Active Video",
+      "Analog Vision"
+    ],
+    "answer": "Audio Visual"
+  },
+  {
+    "category": "IoT",
+    "question": "Which helps IoT devices communicate wirelessly? (Set 37)",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "AV",
+    "question": "What type of sensor measures temperature? (Set 38)",
+    "options": [
+      "Thermometer Sensor",
+      "Motion Sensor",
+      "Sound Sensor",
+      "Light Sensor"
+    ],
+    "answer": "Thermometer Sensor"
+  },
+  {
+    "category": "IoT",
+    "question": "Which device routes video signals? (Set 39)",
+    "options": [
+      "Matrix Switcher",
+      "Amplifier",
+      "Router",
+      "Camera"
+    ],
+    "answer": "Matrix Switcher"
+  },
+  {
+    "category": "IoT",
+    "question": "Which technology enables IoT automation? (Set 40)",
+    "options": [
+      "Artificial Intelligence",
+      "Blockchain",
+      "3D Printing",
+      "Quantum Computing"
+    ],
+    "answer": "Artificial Intelligence"
+  },
+  {
+    "category": "AV",
+    "question": "Which device routes video signals? (Set 41)",
+    "options": [
+      "Matrix Switcher",
+      "Amplifier",
+      "Router",
+      "Camera"
+    ],
+    "answer": "Matrix Switcher"
+  },
+  {
+    "category": "AV",
+    "question": "Which protocol is commonly used in IoT communication? (Set 42)",
+    "options": [
+      "MQTT",
+      "FTP",
+      "SMTP",
+      "HTTP"
+    ],
+    "answer": "MQTT"
+  },
+  {
+    "category": "IoT",
+    "question": "What does AV stand for? (Set 43)",
+    "options": [
+      "Audio Visual",
+      "Automatic Volume",
+      "Active Video",
+      "Analog Vision"
+    ],
+    "answer": "Audio Visual"
+  },
+  {
+    "category": "IoT",
+    "question": "Which helps IoT devices communicate wirelessly? (Set 44)",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "AV",
+    "question": "Which company offers AWS IoT Core? (Set 45)",
+    "options": [
+      "Amazon",
+      "Google",
+      "Microsoft",
+      "IBM"
+    ],
+    "answer": "Amazon"
+  },
+  {
+    "category": "IoT",
+    "question": "What does IoT stand for? (Set 46)",
+    "options": [
+      "Internet of Things",
+      "Input of Technology",
+      "Inside of Tools",
+      "Internal Operating Technique"
+    ],
+    "answer": "Internet of Things"
+  },
+  {
+    "category": "IoT",
+    "question": "Which device routes video signals? (Set 47)",
+    "options": [
+      "Matrix Switcher",
+      "Amplifier",
+      "Router",
+      "Camera"
+    ],
+    "answer": "Matrix Switcher"
+  },
+  {
+    "category": "IoT",
+    "question": "Which helps IoT devices communicate wirelessly? (Set 48)",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "IoT",
+    "question": "Which of the following is an IoT device? (Set 49)",
+    "options": [
+      "Smart Watch",
+      "Desktop Computer",
+      "DVD Player",
+      "USB Drive"
+    ],
+    "answer": "Smart Watch"
+  },
+  {
+    "category": "AV",
+    "question": "What does the perception layer do in IoT? (Set 50)",
+    "options": [
+      "Sensing and actuation",
+      "Data storage",
+      "User interface",
+      "Security"
+    ],
+    "answer": "Sensing and actuation"
+  },
+  {
+    "category": "IoT",
+    "question": "What type of sensor measures temperature? (Set 51)",
+    "options": [
+      "Thermometer Sensor",
+      "Motion Sensor",
+      "Sound Sensor",
+      "Light Sensor"
+    ],
+    "answer": "Thermometer Sensor"
+  },
+  {
+    "category": "IoT",
+    "question": "Which of the following is an IoT device? (Set 52)",
+    "options": [
+      "Smart Watch",
+      "Desktop Computer",
+      "DVD Player",
+      "USB Drive"
+    ],
+    "answer": "Smart Watch"
+  },
+  {
+    "category": "AV",
+    "question": "Which helps IoT devices communicate wirelessly? (Set 53)",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "IoT",
+    "question": "Which technology enables IoT automation? (Set 54)",
+    "options": [
+      "Artificial Intelligence",
+      "Blockchain",
+      "3D Printing",
+      "Quantum Computing"
+    ],
+    "answer": "Artificial Intelligence"
+  },
+  {
+    "category": "IoT",
+    "question": "What does AV stand for? (Set 55)",
+    "options": [
+      "Audio Visual",
+      "Automatic Volume",
+      "Active Video",
+      "Analog Vision"
+    ],
+    "answer": "Audio Visual"
+  },
+  {
+    "category": "AV",
+    "question": "Which technology enables IoT automation? (Set 56)",
+    "options": [
+      "Artificial Intelligence",
+      "Blockchain",
+      "3D Printing",
+      "Quantum Computing"
+    ],
+    "answer": "Artificial Intelligence"
+  },
+  {
+    "category": "IoT",
+    "question": "What captures sound? (Set 57)",
+    "options": [
+      "Microphone",
+      "Speaker",
+      "Camera",
+      "Amplifier"
+    ],
+    "answer": "Microphone"
+  },
+  {
+    "category": "IoT",
+    "question": "Which device routes video signals? (Set 58)",
+    "options": [
+      "Matrix Switcher",
+      "Amplifier",
+      "Router",
+      "Camera"
+    ],
+    "answer": "Matrix Switcher"
+  },
+  {
+    "category": "AV",
+    "question": "Which helps IoT devices communicate wirelessly? (Set 59)",
+    "options": [
+      "Wi-Fi",
+      "Printer Cable",
+      "Headphone Jack",
+      "HDMI"
+    ],
+    "answer": "Wi-Fi"
+  },
+  {
+    "category": "AV",
+    "question": "What increases sound level? (Set 60)",
+    "options": [
+      "Amplifier",
+      "Speaker",
+      "Microphone",
+      "Projector"
+    ],
+    "answer": "Amplifier"
+  }
+]

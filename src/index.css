@@ -1,0 +1,42 @@
+/* index.css */
+
+:root {
+  --bg-color: #000000;   /* You can change later */
+  --text-color: #ffffff;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+/* Splash layout */
+.splash-container {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* GIFs floating above everything */
+.gif-control {
+  position: absolute;
+  pointer-events: none;
+}
