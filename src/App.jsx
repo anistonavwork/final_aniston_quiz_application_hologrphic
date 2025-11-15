@@ -125,6 +125,3 @@ export default function App() {
 }
 
 
-// const SERVICE_ID = "service_cufdeu4";        // your Outlook_quizapp service
-// const TEMPLATE_ID = "template_ifidrpq";      // your EmailJS template ID
-// const PUBLIC_KEY = "PrvfH3gTkEwcwNKJC";   // your EmailJS public key

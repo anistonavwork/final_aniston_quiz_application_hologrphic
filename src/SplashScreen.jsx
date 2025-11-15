@@ -46,22 +46,19 @@ const KNOBS = {
   girlX: "52%",
   girlY: "20%",
   girlSize: 520,
-
-  girlRenderDelay: 3.5,  // When GIF should appear & start animation
-  girlFadeOutDelay: 6,   // When GIF should fade away
-  girlFadeDuration: 1.2, // Fade time
+  girlRenderDelay: 3.5,
+  girlFadeOutDelay: 6,
+  girlFadeDuration: 1.2,
 
   // BIRD GIF CONTROL
   birdX: "52%",
   birdY: "18%",
   birdSize: 280,
-
   birdRenderDelay: 3.5,
   birdFadeOutDelay: 5,
   birdFadeDuration: 1.2,
 
-  // SPLASH EXIT
-  fadeOutAt: 14,
+  // SPLASH EXIT (used only for fade out on Start)
   fadeDuration: 2,
 };
 
@@ -73,40 +70,58 @@ export default function SplashScreen({ onFinish }) {
   const [fadeOut, setFadeOut] = useState(false);
   const [show, setShow] = useState(true);
 
-  // NEW — Controls GIF trigger
+  // Controls GIF trigger
   const [girlPlay, setGirlPlay] = useState(false);
   const [birdPlay, setBirdPlay] = useState(false);
 
-  // NEW — Controls fade-out
+  // Controls fade-out for GIFs
   const [girlFade, setGirlFade] = useState(false);
   const [birdFade, setBirdFade] = useState(false);
 
   useEffect(() => {
     // Trigger GIRL GIF
-    setTimeout(() => setGirlPlay(true), KNOBS.girlRenderDelay * 1000);
+    const t1 = setTimeout(
+      () => setGirlPlay(true),
+      KNOBS.girlRenderDelay * 1000
+    );
 
     // Trigger BIRD GIF
-    setTimeout(() => setBirdPlay(true), KNOBS.birdRenderDelay * 1000);
+    const t2 = setTimeout(
+      () => setBirdPlay(true),
+      KNOBS.birdRenderDelay * 1000
+    );
 
     // Fade GIFs
-    setTimeout(() => setGirlFade(true), KNOBS.girlFadeOutDelay * 1000);
-    setTimeout(() => setBirdFade(true), KNOBS.birdFadeOutDelay * 1000);
+    const t3 = setTimeout(
+      () => setGirlFade(true),
+      KNOBS.girlFadeOutDelay * 1000
+    );
+    const t4 = setTimeout(
+      () => setBirdFade(true),
+      KNOBS.birdFadeOutDelay * 1000
+    );
 
-    // Remove splash
-    setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => {
-        setShow(false);
-        onFinish();
-      }, KNOBS.fadeDuration * 400);
-    }, KNOBS.fadeOutAt * 400);
-
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
   }, []);
 
   if (!show) return null;
 
   const randomOffset = () =>
     (Math.random() > 0.5 ? 1 : -1) * (200 + Math.random() * 200);
+
+  // New: user-controlled start
+  const handleStart = () => {
+    setFadeOut(true);
+    setTimeout(() => {
+      setShow(false);
+      onFinish();
+    }, KNOBS.fadeDuration * 1000);
+  };
 
   return (
     <div
@@ -116,7 +131,6 @@ export default function SplashScreen({ onFinish }) {
         transition: `opacity ${KNOBS.fadeDuration}s ease`,
       }}
     >
-
       {/* ------------- LOGO ------------- */}
       <motion.div
         style={{
@@ -269,6 +283,27 @@ export default function SplashScreen({ onFinish }) {
         />
       )}
 
+      {/* ------------- START BUTTON ------------- */}
+      <button
+        onClick={handleStart}
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          padding: "10px 26px",
+          borderRadius: "999px",
+          border: "none",
+          background: "#00d1ff",
+          color: "#000",
+          fontWeight: 600,
+          fontSize: "0.95rem",
+          letterSpacing: "0.5px",
+          cursor: "pointer",
+        }}
+      >
+        Start
+      </button>
     </div>
   );
 }

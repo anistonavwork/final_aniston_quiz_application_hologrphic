@@ -5,12 +5,12 @@ import html2canvas from "html2canvas";
 
 // For now, admin email is you.
 // Later change to "support@anistonav.com" in one place.
-const ADMIN_EMAIL = "shubhanshu@anistonav.com";
+const ADMIN_EMAIL = "sales@anistonav.com";
 
 // EmailJS credentials
 const SERVICE_ID = "service_cufdeu4";        // your Outlook_quizapp service
-const TEMPLATE_ID = "template_quizapp";      // your EmailJS template ID
-const PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE";   // your EmailJS public key
+const TEMPLATE_ID = "template_ifidrpq";      // your EmailJS template ID
+const PUBLIC_KEY = "PrvfH3gTkEwcwNKJC";   // your EmailJS public key
 
 export default function FinalPage({ userData, correctAnswers, couponCode }) {
   const [copied, setCopied] = useState(false);
