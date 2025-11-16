@@ -3,6 +3,7 @@ import SplashScreen from "./SplashScreen";
 import FormPage from "./FormPage";
 import QuizPage from "./QuizPage";
 import FinalPage from "./FinalPage";
+import FailPage from "./FailPage"; // we will create this in the next step
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -13,7 +14,7 @@ export default function App() {
   // quiz result
   const [correctAnswers, setCorrectAnswers] = useState(null); // number or null
 
-  // coupon code
+  // coupon code (only set when user has >= 2 correct)
   const [couponCode, setCouponCode] = useState("");
 
   // -------- Online / Offline status --------
@@ -36,7 +37,7 @@ export default function App() {
       showMessage("You are offline");
     };
 
-    // initial state check (in case user opens while offline)
+    // initial offline check
     if (!navigator.onLine) {
       handleOffline();
     }
@@ -50,12 +51,15 @@ export default function App() {
     };
   }, []);
 
-  // -------- Step flow: Splash → Form → Quiz → Final --------
+  // -------- Step flow: Splash → Form → Quiz → Success/Fail --------
 
   let screen;
 
+  // 1) Splash stays until Start button
   if (showSplash) {
     screen = <SplashScreen onFinish={() => setShowSplash(false)} />;
+
+  // 2) Form
   } else if (!userData) {
     screen = (
       <FormPage
@@ -65,23 +69,48 @@ export default function App() {
         }}
       />
     );
+
+  // 3) Quiz (we don't know result yet)
   } else if (correctAnswers === null) {
     screen = (
       <QuizPage
         onFinishQuiz={(correct) => {
+          // Save result
           setCorrectAnswers(correct);
-          const code =
-            "Aniston-" + Math.random().toString(36).substring(2, 8);
-          setCouponCode(code);
+
+          // Generate coupon ONLY if user has 2 or more correct
+          if (correct >= 2) {
+            const code =
+              "Aniston-" + Math.random().toString(36).substring(2, 8);
+            setCouponCode(code);
+          } else {
+            setCouponCode(""); // ensure empty when they don't qualify
+          }
         }}
       />
     );
-  } else {
+
+  // 4) Quiz finished & user has >= 2 correct → SUCCESS PAGE
+  } else if (correctAnswers >= 2) {
     screen = (
       <FinalPage
         userData={userData}
         correctAnswers={correctAnswers}
         couponCode={couponCode}
+      />
+    );
+
+  // 5) Quiz finished & user has 0 or 1 correct → FAIL/OOPS PAGE
+  } else {
+    screen = (
+      <FailPage
+        userData={userData}
+        correctAnswers={correctAnswers}
+        onRetry={() => {
+          // reset only quiz state, keep form data
+          setCorrectAnswers(null);
+          setCouponCode("");
+        }}
       />
     );
   }
@@ -94,8 +123,7 @@ export default function App() {
           style={{
             position: "fixed",
             inset: 0,
-            background:
-              "rgba(0, 0, 0, 0.75)",
+            background: "rgba(0, 0, 0, 0.75)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -123,5 +151,4 @@ export default function App() {
     </>
   );
 }
-
-
+// EmailJS credentials          ,      ,   

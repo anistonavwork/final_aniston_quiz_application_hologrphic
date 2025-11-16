@@ -16,21 +16,21 @@ const productImages = [
 // ⭐ FULL CONTROL KNOBS ⭐
 const KNOBS = {
   // LOGO
-  logoFontSize: "2.5rem",
+  logoFontSize: "6.5rem",
   logoLetterSpacing: "0.4rem",
-  logoTop: "32%",
+  logoTop: "8%",
 
   // TAGLINE
-  taglineTop: "45%",
-  taglineFontSize: "0.8rem",
-  taglineWidth: "75%",
+  taglineTop: "40%",
+  taglineFontSize: "1.2rem",
+  taglineWidth: "80%",
   taglineLineHeight: "1.45",
   taglineOpacity: 0.9,
 
   // PRODUCT ROW
   productRowTop: "58%",
-  productSize: 120,
-  productSpacing: "clamp(40px, 6vw, 130px)",
+  productSize: 150,
+  productSpacing: "clamp(20px, 2vw, 80px)",
   productGlow: "0px 0px 22px rgba(0,255,255,0.35)",
 
   // FLOAT EFFECT
@@ -44,8 +44,8 @@ const KNOBS = {
 
   // GIRL GIF CONTROL
   girlX: "52%",
-  girlY: "20%",
-  girlSize: 520,
+  girlY: "2%",
+  girlSize: 820,
   girlRenderDelay: 3.5,
   girlFadeOutDelay: 6,
   girlFadeDuration: 1.2,
@@ -53,7 +53,7 @@ const KNOBS = {
   // BIRD GIF CONTROL
   birdX: "52%",
   birdY: "18%",
-  birdSize: 280,
+  birdSize: 580,
   birdRenderDelay: 3.5,
   birdFadeOutDelay: 5,
   birdFadeDuration: 1.2,
@@ -138,7 +138,7 @@ export default function SplashScreen({ onFinish }) {
           top: KNOBS.logoTop,
           fontSize: KNOBS.logoFontSize,
           letterSpacing: KNOBS.logoLetterSpacing,
-          fontWeight: 800,
+          fontWeight: 900,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 5,
@@ -187,6 +187,7 @@ export default function SplashScreen({ onFinish }) {
           fontSize: KNOBS.taglineFontSize,
           lineHeight: KNOBS.taglineLineHeight,
           zIndex: 4,
+          fontWeight:"600"
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -291,12 +292,12 @@ export default function SplashScreen({ onFinish }) {
           bottom: "10%",
           left: "50%",
           transform: "translateX(-50%)",
-          padding: "10px 26px",
+          padding: "15px 36px",
           borderRadius: "999px",
           border: "none",
           background: "#00d1ff",
           color: "#000",
-          fontWeight: 600,
+          fontWeight: 800,
           fontSize: "0.95rem",
           letterSpacing: "0.5px",
           cursor: "pointer",

@@ -2,6 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import emailjs from "@emailjs/browser";
 import html2canvas from "html2canvas";
+import { AnimatePresence, motion } from "framer-motion";
+
+import clapGif from "/clapping.gif"; // 👈 clapping animation
 
 // For now, admin email is you.
 // Later change to "support@anistonav.com" in one place.
@@ -11,6 +14,13 @@ const ADMIN_EMAIL = "sales@anistonav.com";
 const SERVICE_ID = "service_cufdeu4";        // your Outlook_quizapp service
 const TEMPLATE_ID = "template_ifidrpq";      // your EmailJS template ID
 const PUBLIC_KEY = "PrvfH3gTkEwcwNKJC";   // your EmailJS public key
+
+// Knobs for clapping GIF overlay (position + size)
+const CLAP_KNOBS = {
+  left: "25%",      // X axis (horizontal position)
+  bottom: "45%",    // Y axis (vertical position)
+  height: "290px",  // GIF size
+};
 
 export default function FinalPage({ userData, correctAnswers, couponCode }) {
   const [copied, setCopied] = useState(false);
@@ -27,7 +37,7 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
     });
   };
 
-  // JSON fallback download
+  // JSON fallback download (offline or email error)
   const downloadJsonFallback = () => {
     if (!userData) return;
 
@@ -53,9 +63,9 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
     setFallbackDownloaded(true);
   };
 
-  // Send email via EmailJS (only if online)
+  // Send email via EmailJS (only if online and coupon exists)
   const sendEmail = () => {
-    if (!userData) return;
+    if (!userData || !couponCode) return; // guard: only when coupon exists
 
     const isOnline = navigator.onLine;
 
@@ -81,7 +91,6 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
       })
       .catch((error) => {
         console.error("Email send error:", error);
-        // If email fails for ANY reason, download JSON backup
         downloadJsonFallback();
       });
   };
@@ -124,7 +133,7 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
       style={{
         width: "100vw",
         height: "100vh",
-        background: " #fff",
+        background: "#fff",
         color: "#000",
         display: "flex",
         flexDirection: "column",
@@ -133,19 +142,51 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
         textAlign: "center",
         fontFamily: "-apple-system, BlinkMacSystemFont",
         padding: "20px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Clapping GIF overlay (permanent, behind text) */}
+      <AnimatePresence>
+        <motion.img
+          key="clap-gif"
+          src={clapGif}
+          alt="Clapping"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            position: "absolute",
+            bottom: CLAP_KNOBS.bottom,
+            left: CLAP_KNOBS.left,
+            transform: "translateX(-50%)",
+            height: CLAP_KNOBS.height,
+            pointerEvents: "none",
+            zIndex: 0, // behind text, above background
+            opacity: 0.9,
+          }}
+        />
+      </AnimatePresence>
+
+      {/* Big check mark */}
       <div
         style={{
           fontSize: "80px",
           marginBottom: "20px",
           color: "#00d1ff",
+          zIndex: 1,
         }}
       >
         ✔
       </div>
 
-      <h1 style={{ fontSize: "2rem", marginBottom: "10px" }}>
+      <h1
+        style={{
+          fontSize: "2rem",
+          marginBottom: "10px",
+          zIndex: 1,
+        }}
+      >
         Congratulations, {userData?.name || "Player"}!
       </h1>
 
@@ -155,11 +196,12 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
           fontSize: "1rem",
           marginBottom: "30px",
           lineHeight: 1.4,
+          zIndex: 1,
         }}
       >
         You scored <b>{correctAnswers}</b> out of 4.
         <br />
-        Here is your <b>50% OFF</b> coupon code:
+        Here is your <b>15% OFF</b> gift card
       </p>
 
       {/* Coupon card (screenshot target) */}
@@ -169,7 +211,7 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
           padding: "18px 30px",
           borderRadius: "10px",
           background: "rgba(255,255,255,0.08)",
-          border: "1px solid rgba(255,255,255,0.25)",
+          border: "1px solid #00d1ff",
           backdropFilter: "blur(10px)",
           fontSize: "1.3rem",
           fontWeight: "600",
@@ -177,6 +219,7 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
           color: "#00d1ff",
           marginBottom: "12px",
           minWidth: "260px",
+          zIndex: 1,
         }}
       >
         {couponCode}
@@ -190,6 +233,7 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
           marginBottom: "20px",
           flexWrap: "wrap",
           justifyContent: "center",
+          zIndex: 1,
         }}
       >
         {/* Copy Button */}
@@ -237,15 +281,23 @@ export default function FinalPage({ userData, correctAnswers, couponCode }) {
             fontSize: "0.85rem",
             color: "#00ff99",
             marginBottom: "10px",
+            zIndex: 1,
           }}
         >
           Code copied!
         </div>
       )}
 
-      <p style={{ opacity: 0.6, fontSize: "0.9rem", maxWidth: "420px" }}>
-        Your coupon and quiz details have been emailed to you and{" "}
-        {ADMIN_EMAIL}.
+      <p
+        style={{
+          opacity: 0.6,
+          fontSize: "0.9rem",
+          maxWidth: "420px",
+          zIndex: 1,
+        }}
+      >
+        Your coupon and quiz details have been emailed to you {" "}
+        {ADMIN_EMAIL}
         {fallbackDownloaded && (
           <>
             <br />
