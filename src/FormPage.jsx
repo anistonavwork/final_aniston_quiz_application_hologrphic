@@ -1,6 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import standingGif from "/standing_character.gif"; // your transparent GIF
+
+// ⭐ DESKTOP KNOBS ⭐
+const KNOBS = {
+  containerPadding: "20px 220px",
+
+  headingFontSize: "1.4rem",
+  headingMaxWidth: "520px",
+
+  formMaxWidth: "520px",
+
+  gifHeight: "62vh",
+  gifLeft: "82%",   // percentage from left (with translateX(-50%))
+  gifBottom: "18%",
+
+  errorOverlayColor: "rgba(0,0,0,0.6)",
+};
+
+// ⭐ MOBILE OVERRIDES ⭐
+const MOBILE_OVERRIDES = {
+  containerPadding: "20px 16px",
+
+  headingFontSize: "1.2rem",
+  headingMaxWidth: "100%",
+
+  formMaxWidth: "100%",
+
+  gifHeight: "36vh",
+  gifLeft: "90%",
+  gifBottom: "6%",
+};
 
 export default function FormPage({ onSubmitForm }) {
   const [name, setName] = useState("");
@@ -9,26 +39,39 @@ export default function FormPage({ onSubmitForm }) {
 
   const [errorMessage, setErrorMessage] = useState(null);
 
+  // 🔹 detect mobile vs desktop
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // merge knobs
+  const k = isMobile ? { ...KNOBS, ...MOBILE_OVERRIDES } : KNOBS;
+
   const showError = (message) => {
     setErrorMessage(message);
-    setTimeout(() => setErrorMessage(null), 2000); // hide after 2 sec
+    setTimeout(() => setErrorMessage(null), 2000);
   };
 
   const handleSubmit = () => {
-    // Basic required checks (optional but recommended)
     if (!name.trim()) {
       showError("Please enter your name.");
       return;
     }
 
-    // Mobile validation: exactly 10 digits
     const digitsOnly = mobile.replace(/\D/g, "");
     if (digitsOnly.length !== 10) {
       showError("Please enter a valid 10-digit mobile number.");
       return;
     }
 
-    // Email validation: must have @ and .com
     const emailLower = email.toLowerCase().trim();
     if (
       !emailLower.includes("@") ||
@@ -39,7 +82,6 @@ export default function FormPage({ onSubmitForm }) {
       return;
     }
 
-    // If all good, call parent
     onSubmitForm({
       name: name.trim(),
       email: emailLower,
@@ -59,9 +101,8 @@ export default function FormPage({ onSubmitForm }) {
         fontFamily: "-apple-system, BlinkMacSystemFont",
         color: "#000",
         overflow: "hidden",
-        padding: "20px 220px",
+        padding: k.containerPadding,
         position: "relative",
-        
       }}
     >
       {/* --------- Error Popup Overlay (local to form) --------- */}
@@ -70,12 +111,12 @@ export default function FormPage({ onSubmitForm }) {
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.6)",
+            background: k.errorOverlayColor,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 99,
-            color:"red"
+            color: "red",
           }}
         >
           <div
@@ -98,7 +139,7 @@ export default function FormPage({ onSubmitForm }) {
       <div
         style={{
           width: "100%",
-          maxWidth: "520px",
+          maxWidth: k.formMaxWidth,
           zIndex: 10,
         }}
       >
@@ -107,7 +148,8 @@ export default function FormPage({ onSubmitForm }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           style={{
-            fontSize: "1.4rem",
+            fontSize: k.headingFontSize,
+            maxWidth: k.headingMaxWidth,
             marginBottom: "20px",
             lineHeight: "1.4",
             opacity: 0.9,
@@ -178,17 +220,19 @@ export default function FormPage({ onSubmitForm }) {
         </motion.button>
       </div>
 
-      {/* ---------------- GIF ON RIGHT SIDE ---------------- */}
+      {/* ---------------- GIF ON RIGHT SIDE / BOTTOM ON MOBILE ---------------- */}
       <img
         src={standingGif}
         alt="Character"
         style={{
-          height: "62vh",
+          height: k.gifHeight,
           objectFit: "contain",
           position: "absolute",
-          right: "7%",
-          bottom: "18%",
+          left: k.gifLeft,
+          bottom: k.gifBottom,
+          transform: "translateX(-50%)",
           pointerEvents: "none",
+          zIndex: 10,
         }}
       />
     </div>

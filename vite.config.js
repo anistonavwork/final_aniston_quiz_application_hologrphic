@@ -21,7 +21,7 @@ export default defineConfig({
         "Walking_girl2.gif",
         "flying_bird.gif",
         "standing_character.gif",
-        "clap.gif",
+        "clapping.gif",
       ],
 
       manifest: {

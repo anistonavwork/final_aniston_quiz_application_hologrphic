@@ -7,12 +7,12 @@ import thinkingGif from "/thinking.gif";
 import yesGif from "/yes.gif";
 import noGif from "/no.gif";
 
-// Knobs for GIF positions & sizes
-const GIF_KNOBS = {
+// ⭐ BASE GIF KNOBS (DESKTOP) ⭐
+const GIF_KNOBS_DESKTOP = {
   thinking: {
-    left: "8%",       // horizontal position
-    bottom: "17%",    // vertical position
-    height: "277px",  // size
+    left: "8%", // horizontal position
+    bottom: "17%", // vertical position
+    height: "277px", // size
   },
   yes: {
     left: "75%",
@@ -26,10 +26,47 @@ const GIF_KNOBS = {
   },
 };
 
+// ⭐ MOBILE GIF OVERRIDES ⭐
+const GIF_KNOBS_MOBILE = {
+  thinking: {
+    left: "-1%",
+    bottom: "1%",
+    height: "200px",
+  },
+  yes: {
+    left: "50%",
+    bottom: "4%",
+    height: "190px",
+  },
+  no: {
+    left: "50%",
+    bottom: "4%",
+    height: "190px",
+  },
+};
+
+// ⭐ LAYOUT KNOBS ⭐
+const LAYOUT_KNOBS = {
+  containerPaddingDesktop: "20px",
+  containerPaddingMobile: "16px 12px",
+
+  headingFontSizeDesktop: "2rem",
+  headingFontSizeMobile: "1.4rem",
+
+  questionFontSizeDesktop: "1.3rem",
+  questionFontSizeMobile: "1.05rem",
+
+  optionsMaxWidthDesktop: "420px",
+  optionsMaxWidthMobile: "100%",
+
+  buttonWidthDesktop: "43%",
+  buttonWidthMobile: "85%",
+};
+
 // Knobs for YES/NO visibility time & question switch delay
 const FEEDBACK_KNOBS = {
-  feedbackDurationMs: 2000,   // how long YES/NO + popup are visible
-  nextQuestionDelayMs: 2200,  // when to switch to the next question
+  feedbackDurationMs: 2000, // how long YES/NO + popup are visible
+  nextQuestionDelayMs: 2200, // when to switch to the next question
 };
 
 export default function QuizPage({ onFinishQuiz }) {
@@ -40,6 +77,42 @@ export default function QuizPage({ onFinishQuiz }) {
 
   const [popup, setPopup] = useState(null); // "correct" or "wrong"
   const [popupVisible, setPopupVisible] = useState(false);
+
+  // 🔹 Detect mobile vs desktop
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Merge GIF knobs
+  const GIF_KNOBS = isMobile ? GIF_KNOBS_MOBILE : GIF_KNOBS_DESKTOP;
+
+  const containerPadding = isMobile
+    ? LAYOUT_KNOBS.containerPaddingMobile
+    : LAYOUT_KNOBS.containerPaddingDesktop;
+
+  const headingFontSize = isMobile
+    ? LAYOUT_KNOBS.headingFontSizeMobile
+    : LAYOUT_KNOBS.headingFontSizeDesktop;
+
+  const questionFontSize = isMobile
+    ? LAYOUT_KNOBS.questionFontSizeMobile
+    : LAYOUT_KNOBS.questionFontSizeDesktop;
+
+  const optionsMaxWidth = isMobile
+    ? LAYOUT_KNOBS.optionsMaxWidthMobile
+    : LAYOUT_KNOBS.optionsMaxWidthDesktop;
+
+  const buttonWidth = isMobile
+    ? LAYOUT_KNOBS.buttonWidthMobile
+    : LAYOUT_KNOBS.buttonWidthDesktop;
 
   // Pick random 4 questions on mount
   useEffect(() => {
@@ -104,7 +177,7 @@ export default function QuizPage({ onFinishQuiz }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "20px",
+        padding: containerPadding,
         fontFamily: "-apple-system, BlinkMacSystemFont",
         position: "relative",
         overflow: "hidden",
@@ -184,7 +257,7 @@ export default function QuizPage({ onFinishQuiz }) {
               background: "rgba(255,255,255,0.1)",
               padding: "14px 26px",
               borderRadius: "12px",
-              border: "1px solid rgba(255,255,255,0.3)",
+              border: "1px solid rgba(0,0,0,0.15)",
               backdropFilter: "blur(10px)",
               fontSize: "1rem",
               zIndex: 35,
@@ -200,7 +273,10 @@ export default function QuizPage({ onFinishQuiz }) {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        style={{ marginBottom: "25px", fontSize: "2rem" }}
+        style={{
+          marginBottom: isMobile ? "18px" : "25px",
+          fontSize: headingFontSize,
+        }}
       >
         Question {index + 1} of 4
       </motion.h2>
@@ -215,7 +291,7 @@ export default function QuizPage({ onFinishQuiz }) {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7 }}
         style={{
-          fontSize: "1.3rem",
+          fontSize: questionFontSize,
           marginBottom: "15px",
           textAlign: "center",
           maxWidth: "600px",
@@ -225,7 +301,7 @@ export default function QuizPage({ onFinishQuiz }) {
       </motion.p>
 
       {/* Options */}
-      <div style={{ width: "100%", maxWidth: "420px" }}>
+      <div style={{ width: "100%", maxWidth: optionsMaxWidth }}>
         {current.options.map((opt, i) => (
           <motion.div
             key={i}
@@ -245,7 +321,7 @@ export default function QuizPage({ onFinishQuiz }) {
               cursor: "pointer",
               background: selected === opt ? "#003b45" : "#fff",
               transition: "0.3s",
-              width:"100%"
+              width: "100%",
             }}
           >
             {opt}
@@ -269,7 +345,8 @@ export default function QuizPage({ onFinishQuiz }) {
           cursor: "pointer",
           color: "#000",
           fontSize: "1rem",
-          width:"43%"
+          width: buttonWidth,
+          maxWidth: "420px",
         }}
       >
         {index === 3 ? "Finish Quiz" : "Next"}
