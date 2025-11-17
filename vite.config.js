@@ -7,12 +7,14 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+
       includeAssets: [
         "favicon.ico",
         "apple-touch-icon.png",
         "pwa-192x192.png",
         "pwa-512x512.png",
-        // explicitly include your GIFs/images in public
+
+        // Add your GIFs and images here
         "thinking.gif",
         "yes.gif",
         "no.gif",
@@ -21,6 +23,7 @@ export default defineConfig({
         "standing_character.gif",
         "clap.gif",
       ],
+
       manifest: {
         name: "Aniston Quiz App",
         short_name: "AnistonQuiz",
@@ -42,21 +45,26 @@ export default defineConfig({
           },
         ],
       },
+
       workbox: {
-        // Precache ALL built assets: js, css, html, images, gifs, json, etc.
+        // 💥 SET MAX FILE SIZE TO 50 MB
+        maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50 MB
+
         globDirectory: "dist",
         globPatterns: [
-          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,json}",
+          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,json,webp}"
         ],
+
         navigateFallback: "index.html",
+
         runtimeCaching: [
           {
-            // extra safety for runtime requests
             urlPattern: ({ request }) =>
               request.destination === "script" ||
               request.destination === "style" ||
               request.destination === "image" ||
-              request.destination === "font",
+              request.destination === "font" ||
+              request.destination === "document",
             handler: "CacheFirst",
             options: {
               cacheName: "aniston-static-cache",
